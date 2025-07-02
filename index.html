@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ピアノあそび</title>
+    <!-- Google Fonts: 丸みのあるフォント -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500;700&display=swap" rel="stylesheet">
+    <!-- PWA対応: マニフェストファイルへのリンク -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#aecad6"/>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>ピアノあそび</h1>
+    <div class="piano">
+        <div class="key white" data-note="do">ド</div>
+        <div class="key black" data-note="b1"></div>
+        <div class="key white" data-note="re">レ</div>
+        <div class="key black" data-note="b2"></div>
+        <div class="key white" data-note="mi">ミ</div>
+        <div class="key white" data-note="fa">ファ</div>
+        <div class="key black" data-note="b3"></div>
+        <div class="key white" data-note="so">ソ</div>
+        <div class="key black" data-note="b4"></div>
+        <div class="key white" data-note="ra">ラ</div>
+        <div class="key black" data-note="b5"></div>
+        <div class="key white" data-note="si">シ</div>
+        <div class="key white" data-note="do2">ド</div>
+        <!-- ... 必要なだけ鍵盤を追加 ... -->
+    </div>
+
+    <script src="script.js"></script>
+
+    <!-- PWA対応: Service Workerの登録 -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('sw.js').then(registration => {
+                    console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                }, err => {
+                    console.log('ServiceWorker registration failed: ', err);
+                });
+            });
+        }
+    </script>
+</body>
+</html>
